@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Dtoolz Word Translator</h1>
+    <h4>input any word, submit to translate to the chosen language in the dropdown.</h4>
+    <wordInput></wordInput>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import wordInput from "./components/wordInput";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components : {
+    wordInput
   }
 }
 </script>
