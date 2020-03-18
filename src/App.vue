@@ -1,12 +1,16 @@
 <template>
   <div class="container-fluid text-white text-center" id="app">
-    <h1 class="my-3">Dtoolz Word Translator</h1>
-    <h3 class="mt-3 font-weight-normal text-capitalize lead">
-      input words, click the translate button to translate to the chosen language in the
-      selected option. <br> available languages includes french, spanish, chinese, german, italian, russian, portuguese.
-    </h3>
-    <wordInput v-on:formSubmit="wordTranslate"></wordInput>
-    <wordOutput v-text="wordTranslated" ></wordOutput>
+    <div class="gendiv">
+      <h1 class="mb-3 pt-3">Dtoolz Word Translator</h1>
+      <h3 class="mt-3 font-weight-normal text-capitalize lead">
+        input words, click the translate button to translate to the chosen
+        language in the selected option. <br />
+        available languages includes french, spanish, chinese, german, italian,
+        russian, portuguese.
+      </h3>
+      <wordInput v-on:formSubmit="wordTranslate"></wordInput>
+      <wordOutput v-text="wordTranslated"></wordOutput>
+    </div>
   </div>
 </template>
 
@@ -20,30 +24,63 @@ export default {
     wordInput,
     wordOutput
   },
-  data: function(){
+  data: function() {
     return {
-      wordTranslated: ''
-    }
+      wordTranslated: ""
+    };
   },
   methods: {
     wordTranslate: function(word, language) {
       // alert(word);
-      this.$http.get(
-        "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200316T144937Z.93dc9dc5d746e1b2.f26ab83c43b2584761480613c7590cddad2ac904&lang="+language+"&text=" +
-          word
-      ).then((response) => {
+      this.$http
+        .get(
+          "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200316T144937Z.93dc9dc5d746e1b2.f26ab83c43b2584761480613c7590cddad2ac904&lang=" +
+            language +
+            "&text=" +
+            word
+        )
+        .then(response => {
           //console.log(response);
-         this.wordTranslated =  response.body.text[0];
-      });
+          this.wordTranslated = response.body.text[0];
+        });
     }
   }
 };
 </script>
 
 <style>
-  #app{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('~@/assets/black.jpg') no-repeat center;
-    background-size: cover;
-    height: 100vh;
+#app {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("~@/assets/black.jpg") no-repeat center;
+  background-size: cover;
+  height: 100vh;
+}
+.gendiv{
+  margin-left: 200px;
+}
+@media (min-width: 768px) {
+  .gendiv{
+  margin-left: 200px;
   }
+}
+@media (min-width: 600px) {
+  .gendiv{
+  margin-left: 150px;
+  }
+}
+@media (min-width: 500px) {
+  .gendiv{
+  margin-left: 100px;
+  }
+}
+@media (min-width: 400px) {
+  .gendiv{
+  margin-left: 60px;
+  }
+}
+@media (min-width: 300px) {
+  .gendiv{
+  margin-left: 30px;
+  }
+}
 </style>
