@@ -1,6 +1,6 @@
 <template>
   <div id="wordOutput">
-         <h4 class="my-3">{{ wordTranslated }}</h4>
+         <h4 class="bg-dark text-white">{{ wordTranslated }}</h4>
   </div>
 </template>
 

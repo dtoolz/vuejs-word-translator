@@ -1,5 +1,6 @@
 <template>
-  <div id="wordInput">
+  <div class="padd" id="wordInput">
+      <h4 class="mt-3">Preview Your Input : {{ wordToTranslate }}</h4>
     <form class="container  mt-5" v-on:submit="formSubmit">
       <div class="form-div-a row">
         <div class="input-group mb-3">
@@ -32,10 +33,7 @@
         <input class="btn btn-success" type="submit" value="Translate" />
       </div>
     </form>
-    <h4 class="mt-3">preview : {{ wordToTranslate }}</h4>
-    <div class="my-4 text-capitalize">
-      <span class="underline">Translation is shown below :</span>
-    </div>
+    
   </div>
 </template>
 
@@ -61,12 +59,9 @@ export default {
 </script>
 
 <style scoped>
-.underline {
-  border-bottom: 3px solid rgb(168, 229, 168);
-  color: rgb(168, 229, 168);
-  font-size: 20px;
+.padd {
+    padding-bottom: 300px;
 }
-
 @media (min-width: 1200px) {
   .form-div-a{
   margin-left: 200px !important;
